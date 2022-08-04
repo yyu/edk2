@@ -1,0 +1,29 @@
+## @file
+# Configure some PCDs dynamically
+#
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 1.27
+  BASE_NAME                      = NetworkCfgLib
+  FILE_GUID                      = c81bfcf9-7dce-44f7-a9cb-be607f481a86
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = NULL
+  CONSTRUCTOR                    = SetNetworkingSupportPcds
+
+[Sources]
+  NetworkCfgLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  OvmfPkg/OvmfPkg.dec
+
+[LibraryClasses]
+  PcdLib
+  DebugLib
+  QemuFwCfgSimpleParserLib
+
+[Pcd]
+  gUefiOvmfPkgTokenSpaceGuid.PcdNetworkSupport       ## SOMETIMES_PRODUCES
