@@ -686,6 +686,8 @@
   gEfiMdePkgTokenSpaceGuid.PcdFSBClock|1000000000
 !endif
 
+  gUefiOvmfPkgTokenSpaceGuid.PcdNetworkSupport|TRUE
+
 [PcdsDynamicHii]
 !include OvmfPkg/OvmfTpmPcdsHii.dsc.inc
 
@@ -953,7 +955,10 @@
       NULL|OvmfPkg/Library/TlsAuthConfigLib/TlsAuthConfigLib.inf
   }
 !endif
-  OvmfPkg/VirtioNetDxe/VirtioNet.inf
+  OvmfPkg/VirtioNetDxe/VirtioNet.inf {
+    <LibraryClasses>
+      NULL|OvmfPkg/Library/NetworkCfgLib/NetworkCfgLib.inf
+  }
 
   #
   # Usb Support

@@ -9,6 +9,8 @@
 
 **/
 
+#include <PiDxe.h>
+
 #include <Library/UefiLib.h>
 
 #include "VirtioNet.h"
@@ -32,6 +34,14 @@ VirtioNetEntryPoint (
   IN EFI_SYSTEM_TABLE  *SystemTable
   )
 {
+  if (PcdGetBool (PcdNetworkSupport)) {
+    DEBUG ((DEBUG_INFO, "[network] %a - Networking enabled.\n", __FUNCTION__));
+  } else {
+    DEBUG ((DEBUG_INFO, "[network] %a - Networking disabled.\n", __FUNCTION__));
+
+    return EFI_REQUEST_UNLOAD_IMAGE;
+  }
+
   return EfiLibInstallDriverBindingComponentName2 (
            ImageHandle,
            SystemTable,

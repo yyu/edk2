@@ -54,3 +54,6 @@
   gEfiSimpleNetworkProtocolGuid  ## BY_START
   gEfiDevicePathProtocolGuid     ## BY_START
   gVirtioDeviceProtocolGuid      ## TO_START
+
+[Pcd]
+  gUefiOvmfPkgTokenSpaceGuid.PcdNetworkSupport       ## CONSUMES
