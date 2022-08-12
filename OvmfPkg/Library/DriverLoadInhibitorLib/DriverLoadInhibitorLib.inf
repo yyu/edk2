@@ -1,0 +1,28 @@
+## @file
+#  Copyright (c) 2022, Google LLC. All rights reserved.<BR>
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+##
+
+[Defines]
+  INF_VERSION                    = 1.29
+  BASE_NAME                      = DriverLoadInhibitorLib
+  FILE_GUID                      = af4c2c0b-f7ed-4d61-ad97-5953982c3531
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = NULL
+  CONSTRUCTOR                    = DriverLoadInhibitorLibConstructor
+
+[Sources]
+  DriverLoadInhibitorLib.c
+
+[LibraryClasses]
+  QemuFwCfgSimpleParserLib
+  UefiBootServicesTableLib
+
+[Packages]
+  MdePkg/MdePkg.dec
+  OvmfPkg/OvmfPkg.dec
+
+[FixedPcd]
+  gUefiOvmfPkgTokenSpaceGuid.PcdDriverInhibitorFwCfgVarName

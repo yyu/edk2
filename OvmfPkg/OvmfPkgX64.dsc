@@ -947,6 +947,20 @@
       NULL|OvmfPkg/Library/PxeBcPcdProducerLib/PxeBcPcdProducerLib.inf
   }
 
+  NetworkPkg/Ip4Dxe/Ip4Dxe.inf {
+    <LibraryClasses>
+      NULL|OvmfPkg/Library/DriverLoadInhibitorLib/DriverLoadInhibitorLib.inf
+    <PcdsFixedAtBuild>
+      gUefiOvmfPkgTokenSpaceGuid.PcdDriverInhibitorFwCfgVarName|"opt/org.tianocore/IPv4Support"
+  }
+
+  NetworkPkg/Ip6Dxe/Ip6Dxe.inf {
+    <LibraryClasses>
+      NULL|OvmfPkg/Library/DriverLoadInhibitorLib/DriverLoadInhibitorLib.inf
+    <PcdsFixedAtBuild>
+      gUefiOvmfPkgTokenSpaceGuid.PcdDriverInhibitorFwCfgVarName|"opt/org.tianocore/IPv6Support"
+  }
+
 !if $(NETWORK_TLS_ENABLE) == TRUE
   NetworkPkg/TlsAuthConfigDxe/TlsAuthConfigDxe.inf {
     <LibraryClasses>
