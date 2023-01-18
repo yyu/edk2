@@ -533,9 +533,6 @@ SCSIBusDriverBindingStart (
     // then create handle and install scsi i/o protocol.
     //
     Status = ScsiScanCreateDevice (This, Controller, &ScsiTargetId, Lun, ScsiBusDev);
-    if (Status == EFI_OUT_OF_RESOURCES) {
-      goto ErrorExit;
-    }
   }
 
   return EFI_SUCCESS;
