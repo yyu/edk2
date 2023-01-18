@@ -532,7 +532,7 @@ SCSIBusDriverBindingStart (
     // Scan for the scsi device, if it attaches to the scsi bus,
     // then create handle and install scsi i/o protocol.
     //
-    Status = ScsiScanCreateDevice (This, Controller, &ScsiTargetId, Lun, ScsiBusDev);
+    ScsiScanCreateDevice (This, Controller, &ScsiTargetId, Lun, ScsiBusDev);
   }
 
   return EFI_SUCCESS;
